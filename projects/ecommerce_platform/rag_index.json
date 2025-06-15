@@ -1,0 +1,292 @@
+{
+  "files": {
+    "project_context.json": {
+      "type": "json",
+      "size": 858,
+      "modified": "2025-06-14T15:01:32.077755",
+      "content_preview": "{\n  \"project_name\": \"ecommerce_platform\",\n  \"requirements\": {\n    \"requirements\": [\n      \"Parse failed - manual review needed\"\n    ],\n    \"user_stories\": [\n      \"Parse failed - manual review needed\"\n    ],\n    \"acceptance_criteria\": [\n      \"Parse failed - manual review needed\"\n    ],\n    \"timeline\": \"Parse failed - manual review needed\",\n    \"status\": \"partial_failure\"\n  },\n  \"architecture\": {\n    \"architecture_type\": \"microservices\",\n    \"tech_stack\": {\n      \"backend\": \"FastAPI\",\n      \"fro"
+    },
+    "03_code/code_20250614_210940.json": {
+      "type": "json",
+      "size": 26520,
+      "modified": "2025-06-14T21:09:40.439387",
+      "content_preview": "{\n  \"modules\": {\n    \"backend\": {\n      \"modules\": [\n        \"backend\",\n        \"frontend\",\n        \"database\"\n      ],\n      \"file_structure\": {\n        \"backend/\": \"API server files\",\n        \"backend/app/\": \"Application logic\",\n        \"backend/app/api/\": \"API endpoints\",\n        \"backend/app/models/\": \"Database models\",\n        \"backend/app/schemas/\": \"Data validation schemas\",\n        \"backend/app/core/\": \"Core application components\",\n        \"backend/tests/\": \"Unit and integration tests\","
+    },
+    "01_requirements/requirements_20250614_150114.json": {
+      "type": "json",
+      "size": 294,
+      "modified": "2025-06-14T15:01:14.020568",
+      "content_preview": "{\n  \"requirements\": [\n    \"Parse failed - manual review needed\"\n  ],\n  \"user_stories\": [\n    \"Parse failed - manual review needed\"\n  ],\n  \"acceptance_criteria\": [\n    \"Parse failed - manual review needed\"\n  ],\n  \"timeline\": \"Parse failed - manual review needed\",\n  \"status\": \"partial_failure\"\n}"
+    },
+    "02_architecture/architecture_20250614_150132.json": {
+      "type": "json",
+      "size": 291,
+      "modified": "2025-06-14T15:01:32.077234",
+      "content_preview": "{\n  \"architecture_type\": \"microservices\",\n  \"tech_stack\": {\n    \"backend\": \"FastAPI\",\n    \"frontend\": \"React\",\n    \"database\": \"PostgreSQL\"\n  },\n  \"database_schema\": \"Parse failed - manual review needed\",\n  \"api_design\": \"Parse failed - manual review needed\",\n  \"status\": \"partial_failure\"\n}"
+    },
+    "03_code/database/package.json": {
+      "type": "json",
+      "size": 416,
+      "modified": "2025-06-14T21:09:40.455354",
+      "content_preview": "{\n  \"name\": \"ecommerce_platform\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Ecommerce platform with FastAPI, React, and PostgreSQL\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"start\": \"node index.js\",\n    \"dev\": \"nodemon index.js\"\n  },\n  \"dependencies\": {\n    \"react\": \"^18.0.0\",\n    \"react-dom\": \"^18.0.0\"\n  },\n  \"devDependencies\": {\n    \"nodemon\": \"^2.0.15\"\n  },\n  \"keywords\": [],\n  \"author\": \"\",\n  \"license\": \"ISC\"\n}"
+    },
+    "03_code/backend/package.json": {
+      "type": "json",
+      "size": 535,
+      "modified": "2025-06-14T21:09:40.440655",
+      "content_preview": "{\n  \"name\": \"ecommerce_backend\",\n  \"version\": \"0.1.0\",\n  \"description\": \"Backend for ecommerce platform\",\n  \"main\": \"src/main.py\",\n  \"scripts\": {\n    \"start\": \"uvicorn src.main:app --reload\",\n    \"test\": \"pytest\"\n  },\n  \"dependencies\": {\n    \"fastapi\": \"^0.100.0\",\n    \"uvicorn\": \"^0.23.0\",\n    \"pydantic\": \"^2.0.0\",\n    \"sqlalchemy\": \"^2.0.0\",\n    \"psycopg2-binary\": \"^2.9.0\",\n    \"python-dotenv\": \"^1.0.0\"\n  },\n  \"devDependencies\": {\n    \"pytest\": \"^7.0.0\",\n    \"requests\": \"^2.0.0\"\n  },\n  \"author\""
+    },
+    "03_code/backend/src/main.py": {
+      "type": "python",
+      "size": 675,
+      "modified": "2025-06-14T21:09:40.440333",
+      "content_preview": "from fastapi import FastAPI\nfrom fastapi.middleware.cors import CORSMiddleware\nfrom app.api import api_router\nfrom app.core.config import settings\n\napp = FastAPI(\n    title=settings.PROJECT_NAME,\n    openapi_url=f\"{settings.API_V1_STR}/openapi.json\"\n)\n\n# Set all CORS enabled origins\nif settings.BACKEND_CORS_ORIGINS:\n    app.add_middleware(\n        CORSMiddleware,\n        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],\n        allow_credentials=True,\n        allow_methods"
+    },
+    "03_code/backend/backend/app/core/config.py": {
+      "type": "python",
+      "size": 647,
+      "modified": "2025-06-14T21:09:40.442211",
+      "content_preview": "import os\n\nfrom typing import List\n\nfrom dotenv import load_dotenv\n\nload_dotenv()\n\nPROJECT_NAME = os.getenv(\"PROJECT_NAME\", \"Ecommerce Platform\")\n\nAPI_V1_STR = \"/api/v1\"\n\nDATABASE_URL = os.getenv(\"DATABASE_URL\", \"postgresql://user:password@localhost:5432/dbname\")\n\nBACKEND_CORS_ORIGINS = os.getenv(\n    \"BACKEND_CORS_ORIGINS\",\n    \"http://localhost,http://localhost:4200,http://localhost:3000\",\n)\n\nBACKEND_CORS_ORIGINS = BACKEND_CORS_ORIGINS.split(\",\")\n\nUSERS_OPEN_REGISTRATION = os.getenv(\"USERS_OPE"
+    },
+    "03_code/backend/backend/app/core/security.py": {
+      "type": "python",
+      "size": 880,
+      "modified": "2025-06-14T21:09:40.442549",
+      "content_preview": "from datetime import datetime, timedelta\nfrom typing import Any, Union\n\nfrom jose import jwt\nfrom passlib.context import CryptContext\n\nfrom app.core.config import ALGORITHM, SECRET_KEY\n\npassword_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\n\n\ndef create_access_token(\n    subject: Union[str, Any], expires_delta: timedelta = None\n) -> str:\n    if expires_delta:\n        expire = datetime.utcnow() + expires_delta\n    else:\n        expire = datetime.utcnow() + timedelta(minutes=30)\n  "
+    },
+    "03_code/backend/backend/app/models/user.py": {
+      "type": "python",
+      "size": 621,
+      "modified": "2025-06-14T21:09:40.444906",
+      "content_preview": "from typing import TYPE_CHECKING\n\nfrom sqlalchemy import Boolean, Column, Integer, String\nfrom sqlalchemy.orm import relationship\n\nfrom app.db.base_class import Base\n\nif TYPE_CHECKING:\n    from .item import Item  # noqa: F401\n\n\nclass User(Base):\n    id = Column(Integer, primary_key=True, index=True)\n    full_name = Column(String, index=True)\n    email = Column(String, unique=True, index=True, nullable=False)\n    hashed_password = Column(String, nullable=False)\n    is_active = Column(Boolean(), d"
+    },
+    "03_code/backend/backend/app/models/item.py": {
+      "type": "python",
+      "size": 404,
+      "modified": "2025-06-14T21:09:40.444547",
+      "content_preview": "from sqlalchemy import Column, ForeignKey, Integer, String\nfrom sqlalchemy.orm import relationship\n\nfrom app.db.base_class import Base\n\n\nclass Item(Base):\n    id = Column(Integer, primary_key=True, index=True)\n    title = Column(String, index=True)\n    description = Column(String, index=True)\n    owner_id = Column(Integer, ForeignKey(\"user.id\"))\n    owner = relationship(\"User\", back_populates=\"items\")"
+    },
+    "03_code/backend/backend/app/schemas/user.py": {
+      "type": "python",
+      "size": 812,
+      "modified": "2025-06-14T21:09:40.448918",
+      "content_preview": "from typing import Optional\n\nfrom pydantic import BaseModel, EmailStr\n\n\n# Shared properties\nclass UserBase(BaseModel):\n    email: Optional[EmailStr] = None\n    full_name: Optional[str] = None\n\n\n# Properties to receive on user creation\nclass UserCreate(UserBase):\n    email: EmailStr\n    password: str\n\n\n# Properties to receive on user update\nclass UserUpdate(UserBase):\n    password: Optional[str] = None\n\n\n# Properties shared by models stored in DB\nclass UserInDBBase(UserBase):\n    id: int\n    emai"
+    },
+    "03_code/backend/backend/app/schemas/token.py": {
+      "type": "python",
+      "size": 229,
+      "modified": "2025-06-14T21:09:40.448106",
+      "content_preview": "from typing import Optional\n\nfrom pydantic import BaseModel\n\n\nclass TokenBase(BaseModel):\n    access_token: str\n    token_type: str\n\n\nclass Token(TokenBase):\n    pass\n\n\nclass TokenPayload(BaseModel):\n    sub: Optional[str] = None"
+    },
+    "03_code/backend/backend/app/schemas/__init__.py": {
+      "type": "python",
+      "size": 163,
+      "modified": "2025-06-14T21:09:40.445373",
+      "content_preview": "from .item import Item, ItemCreate, ItemUpdate\nfrom .msg import Msg\nfrom .token import Token, TokenPayload\nfrom .user import User, UserCreate, UserInDB, UserUpdate"
+    },
+    "03_code/backend/backend/app/schemas/msg.py": {
+      "type": "python",
+      "size": 67,
+      "modified": "2025-06-14T21:09:40.446562",
+      "content_preview": "from pydantic import BaseModel\n\n\nclass Msg(BaseModel):\n    msg: str"
+    },
+    "03_code/backend/backend/app/schemas/item.py": {
+      "type": "python",
+      "size": 653,
+      "modified": "2025-06-14T21:09:40.445915",
+      "content_preview": "from typing import Optional\n\nfrom pydantic import BaseModel\n\n\n# Shared properties\nclass ItemBase(BaseModel):\n    title: Optional[str] = None\n    description: Optional[str] = None\n\n\n# Properties to receive on item creation\nclass ItemCreate(ItemBase):\n    title: str\n\n\n# Properties to receive on item update\nclass ItemUpdate(ItemBase):\n    pass\n\n\n# Properties shared by models stored in DB\nclass ItemInDBBase(ItemBase):\n    id: int\n    title: str\n    owner_id: int\n\n    class Config:\n        orm_mode ="
+    },
+    "03_code/backend/backend/app/db/base_class.py": {
+      "type": "python",
+      "size": 328,
+      "modified": "2025-06-14T21:09:40.443635",
+      "content_preview": "from typing import Any\n\nfrom sqlalchemy.ext.declarative import as_declarative, declared_attr\n\n@as_declarative()\nclass Base:\n    \"\"\"Base class which provides automated table name\n    and surrogate primary key column.\n\n    \"\"\"\n\n    @declared_attr\n    def __tablename__(cls) -> str:\n        return cls.__name__.lower()\n\n    id: Any"
+    },
+    "03_code/backend/backend/app/db/session.py": {
+      "type": "python",
+      "size": 252,
+      "modified": "2025-06-14T21:09:40.444116",
+      "content_preview": "from sqlalchemy import create_engine\nfrom sqlalchemy.orm import sessionmaker\n\nfrom app.core.config import DATABASE_URL\n\nengine = create_engine(DATABASE_URL, pool_pre_ping=True)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)"
+    },
+    "03_code/backend/backend/app/db/base.py": {
+      "type": "python",
+      "size": 150,
+      "modified": "2025-06-14T21:09:40.443180",
+      "content_preview": "from app.models.item import Item\nfrom app.models.user import User\n\n# Import all the models, so that Base has them before being\n# imported into Alembic"
+    },
+    "03_code/backend/backend/app/api/__init__.py": {
+      "type": "python",
+      "size": 239,
+      "modified": "2025-06-14T21:09:40.441261",
+      "content_preview": "from fastapi import APIRouter\n\nfrom .endpoints import items, users\n\napi_router = APIRouter()\napi_router.include_router(items.router, prefix=\"/items\", tags=[\"items\"])\napi_router.include_router(users.router, prefix=\"/users\", tags=[\"users\"])\n"
+    },
+    "03_code/backend/backend/app/api/endpoints/users.py": {
+      "type": "python",
+      "size": 3253,
+      "modified": "2025-06-14T21:09:40.441915",
+      "content_preview": "from typing import Any, List\n\nfrom fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\n\nfrom app import crud, models, schemas\nfrom app.api import deps\nfrom app.core.config import settings\n\nrouter = APIRouter()\n\n\n@router.post(\"/open\", response_model=schemas.User)\ndef create_user_open(\n    *, \n    db: Session = Depends(deps.get_db),\n    user_in: schemas.UserCreate,\n) -> Any:\n    \"\"\"\n    Create new user without the need to be logged in.\n    \"\"\"\n    if not settings.US"
+    },
+    "03_code/backend/backend/app/api/endpoints/items.py": {
+      "type": "python",
+      "size": 2895,
+      "modified": "2025-06-14T21:09:40.441630",
+      "content_preview": "from typing import Any, List\n\nfrom fastapi import APIRouter, Depends, HTTPException\nfrom sqlalchemy.orm import Session\n\nfrom app import crud, models, schemas\nfrom app.api import deps\n\nrouter = APIRouter()\n\n\n@router.get(\"/\", response_model=List[schemas.Item])\ndef read_items(\n    db: Session = Depends(deps.get_db),\n    skip: int = 0,\n    limit: int = 100,\n    current_user: models.User = Depends(deps.get_current_active_user),\n) -> Any:\n    \"\"\"\n    Retrieve items.\n    \"\"\"\n    if crud.user.is_superus"
+    },
+    "03_code/frontend/frontend/package.json": {
+      "type": "json",
+      "size": 878,
+      "modified": "2025-06-14T21:09:40.449731",
+      "content_preview": "{\n  \"name\": \"ecommerce-frontend\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"@testing-library/jest-dom\": \"^5.17.0\",\n    \"@testing-library/react\": \"^13.4.0\",\n    \"@testing-library/user-event\": \"^13.5.0\",\n    \"axios\": \"^1.6.7\",\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\",\n    \"react-router-dom\": \"^6.22.1\",\n    \"react-scripts\": \"5.0.1\",\n    \"web-vitals\": \"^2.1.4\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"re"
+    },
+    "03_code/frontend/frontend/.env": {
+      "type": "unknown",
+      "size": 44,
+      "modified": "2025-06-14T21:09:40.453388",
+      "content_preview": "REACT_APP_API_BASE_URL=http://localhost:8000"
+    },
+    "03_code/frontend/frontend/public/index.html": {
+      "type": "unknown",
+      "size": 1655,
+      "modified": "2025-06-14T21:09:40.452933",
+      "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <link rel=\"icon\" href=\"%PUBLIC_URL%/favicon.ico\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <meta name=\"theme-color\" content=\"#000000\" />\n    <meta\n      name=\"description\"\n      content=\"Web site created using create-react-app\"\n    />\n    <link rel=\"apple-touch-icon\" href=\"%PUBLIC_URL%/logo192.png\" />\n    <!--\n      manifest.json provides metadata used when your web app is installed"
+    },
+    "03_code/frontend/frontend/src/index.js": {
+      "type": "javascript",
+      "size": 627,
+      "modified": "2025-06-14T21:09:40.450387",
+      "content_preview": "import React from 'react';\nimport ReactDOM from 'react-dom/client';\nimport './index.css';\nimport App from './App';\nimport reportWebVitals from './reportWebVitals';\nimport { BrowserRouter } from 'react-router-dom';\n\nconst root = ReactDOM.createRoot(document.getElementById('root'));\nroot.render(\n  <React.StrictMode>\n    <BrowserRouter>\n      <App />\n    </BrowserRouter>\n  </React.StrictMode>\n);\n\n// If you want to start measuring performance in your app, pass a function\n// to log results (for examp"
+    },
+    "03_code/frontend/frontend/src/App.js": {
+      "type": "javascript",
+      "size": 403,
+      "modified": "2025-06-14T21:09:40.451036",
+      "content_preview": "import React from 'react';\nimport { Routes, Route } from 'react-router-dom';\nimport HomePage from './pages/HomePage';\nimport ProductPage from './pages/ProductPage';\n\nfunction App() {\n  return (\n    <div className=\"App\">\n      <Routes>\n        <Route path=\"/\" element={<HomePage />} />\n        <Route path=\"/product/:id\" element={<ProductPage />} />\n      </Routes>\n    </div>\n  );\n}\n\nexport default App;"
+    },
+    "03_code/frontend/frontend/src/pages/HomePage.js": {
+      "type": "javascript",
+      "size": 205,
+      "modified": "2025-06-14T21:09:40.451709",
+      "content_preview": "import React from 'react';\n\nfunction HomePage() {\n  return (\n    <div>\n      <h1>Welcome to the Ecommerce Platform</h1>\n      <p>Browse our amazing products!</p>\n    </div>\n  );\n}\n\nexport default HomePage;"
+    },
+    "03_code/frontend/frontend/src/pages/ProductPage.js": {
+      "type": "javascript",
+      "size": 1025,
+      "modified": "2025-06-14T21:09:40.452296",
+      "content_preview": "import React, { useState, useEffect } from 'react';\nimport { useParams } from 'react-router-dom';\nimport axios from 'axios';\n\nfunction ProductPage() {\n  const { id } = useParams();\n  const [product, setProduct] = useState(null);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    const fetchProduct = async () => {\n      try {\n        const response = await axios.get(`/api/products/${id}`); // Replace with your actual API endpoint\n "
+    },
+    "03_code/database/database/models.py": {
+      "type": "python",
+      "size": 343,
+      "modified": "2025-06-14T21:09:40.456740",
+      "content_preview": "from sqlalchemy import Boolean, Column, Integer, String\nfrom sqlalchemy.orm import relationship\n\nfrom .database import Base\n\n\nclass Item(Base):\n    __tablename__ = \"items\"\n\n    id = Column(Integer, primary_key=True, index=True)\n    title = Column(String, index=True)\n    description = Column(String, index=True)\n    owner_id = Column(Integer)\n"
+    },
+    "03_code/database/database/alembic.ini": {
+      "type": "unknown",
+      "size": 415,
+      "modified": "2025-06-14T21:09:40.457027",
+      "content_preview": "[alembic]\n# path to migration scripts\nscript_location = database/alembic\n\n# template used to generate migration files\n# file_template = %%(rev)s_%%(slug)s\n\n# set to true to use environment context file\n# this will cause the environment to be loaded\n# and the env.py script to be invoked.  See the\n# documentation for more details.\nprepend_sys_path = .\n\nsqlalchemy.url = postgresql://user:password@postgresserver/db\n"
+    },
+    "03_code/database/database/database.py": {
+      "type": "python",
+      "size": 448,
+      "modified": "2025-06-14T21:09:40.456186",
+      "content_preview": "from sqlalchemy import create_engine\nfrom sqlalchemy.ext.declarative import declarative_base\nfrom sqlalchemy.orm import sessionmaker\n\nDATABASE_URL = \"postgresql://user:password@postgresserver/db\"\n\nengine = create_engine(DATABASE_URL)\n\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\n\nBase = declarative_base()\n\n# Dependency\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()\n"
+    },
+    "03_code/database/src/main.py": {
+      "type": "python",
+      "size": 396,
+      "modified": "2025-06-14T21:09:40.454710",
+      "content_preview": "from fastapi import FastAPI\nfrom database import database, models\nfrom database.database import engine\n\nmodels.Base.metadata.create_all(bind=engine)\n\napp = FastAPI()\n\n@app.on_event(\"startup\")\nasync def startup():\n    await database.connect()\n\n\n@app.on_event(\"shutdown\")\nasync def shutdown():\n    await database.disconnect()\n\n\n@app.get(\"/\")\nasync def root():\n    return {\"message\": \"Hello World\"}\n"
+    },
+    "03_code/database/database/alembic/env.py": {
+      "type": "python",
+      "size": 1990,
+      "modified": "2025-06-14T21:09:40.457320",
+      "content_preview": "from logging.config import fileConfig\n\nfrom sqlalchemy import create_engine\n\nfrom alembic import context\n\n# this is the Alembic Config object, which provides\n# access to the values within the .ini file in use.\nconfig = context.config\n\n# Interpret the config file for Python logging.\n# This line sets up loggers basically.\nfileConfig(config.config_file_name)\n\n# add your model's MetaData object here\n# for 'autogenerate' support\n# from myapp import mymodel\n# target_metadata = mymodel.Base.metadata\nfr"
+    }
+  },
+  "directories": [
+    "04_tests",
+    "03_code",
+    "01_requirements",
+    "logs",
+    "02_architecture",
+    "05_deployment",
+    "03_code/database",
+    "03_code/frontend",
+    "03_code/backend",
+    "03_code/database/database",
+    "03_code/database/src",
+    "03_code/frontend/frontend",
+    "03_code/backend/backend",
+    "03_code/backend/src",
+    "03_code/backend/backend/app",
+    "03_code/backend/backend/app/core",
+    "03_code/backend/backend/app/models",
+    "03_code/backend/backend/app/schemas",
+    "03_code/backend/backend/app/db",
+    "03_code/backend/backend/app/api",
+    "03_code/backend/backend/app/api/endpoints",
+    "03_code/frontend/frontend/public",
+    "03_code/frontend/frontend/src",
+    "03_code/frontend/frontend/src/pages",
+    "03_code/database/database/alembic"
+  ],
+  "modules": {
+    "code_20250614_210940.json": [
+      "03_code/code_20250614_210940.json"
+    ],
+    "01_requirements": [
+      "01_requirements/requirements_20250614_150114.json"
+    ],
+    "02_architecture": [
+      "02_architecture/architecture_20250614_150132.json"
+    ],
+    "database": [
+      "03_code/database/package.json",
+      "03_code/database/database/models.py",
+      "03_code/database/database/alembic.ini",
+      "03_code/database/database/database.py",
+      "03_code/database/src/main.py",
+      "03_code/database/database/alembic/env.py"
+    ],
+    "backend": [
+      "03_code/backend/package.json",
+      "03_code/backend/src/main.py",
+      "03_code/backend/backend/app/core/config.py",
+      "03_code/backend/backend/app/core/security.py",
+      "03_code/backend/backend/app/models/user.py",
+      "03_code/backend/backend/app/models/item.py",
+      "03_code/backend/backend/app/schemas/user.py",
+      "03_code/backend/backend/app/schemas/token.py",
+      "03_code/backend/backend/app/schemas/__init__.py",
+      "03_code/backend/backend/app/schemas/msg.py",
+      "03_code/backend/backend/app/schemas/item.py",
+      "03_code/backend/backend/app/db/base_class.py",
+      "03_code/backend/backend/app/db/session.py",
+      "03_code/backend/backend/app/db/base.py",
+      "03_code/backend/backend/app/api/__init__.py",
+      "03_code/backend/backend/app/api/endpoints/users.py",
+      "03_code/backend/backend/app/api/endpoints/items.py"
+    ],
+    "frontend": [
+      "03_code/frontend/frontend/package.json",
+      "03_code/frontend/frontend/.env",
+      "03_code/frontend/frontend/public/index.html",
+      "03_code/frontend/frontend/src/index.js",
+      "03_code/frontend/frontend/src/App.js",
+      "03_code/frontend/frontend/src/pages/HomePage.js",
+      "03_code/frontend/frontend/src/pages/ProductPage.js"
+    ]
+  },
+  "summary": {
+    "total_files": 34,
+    "file_types": {
+      "json": 7,
+      "python": 20,
+      "unknown": 3,
+      "javascript": 4
+    },
+    "last_scan": "2025-06-14T21:09:40.457414"
+  }
+}
