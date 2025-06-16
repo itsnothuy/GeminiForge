@@ -1,4 +1,18 @@
-**GeminiForge** is a showcase-grade, end-to-end project generator that combines Google Gemini 2.0-Flash LLMs, Retrieval-Augmented Generation (RAG), and a fully-asynchronous Python micro-framework to turn a *one-paragraph product idea* into a **production-ready, multi-service application**—complete with architecture docs, runnable code, automated tests, Docker/K8s deployment and CI/CD. The repository demonstrates modern back-end, front-end and DevOps skills that a new-grad SWE is expected to know, plus advanced AI-engineering techniques such as multi-agent orchestration and vector-based RAG. ([blog.google][1], [fastapi.tiangolo.com][2], [time.com][3])
+🚀 GeminiForge – AI-Powered Project Generator
+<div align="center">
+
+The Ultimate AI Assistant for Full-Stack Project Generation
+
+
+![Google Gemini AI](https://img.shields.io/badge/AI-engine-Gemini 2.0 Flash-red.svg)
+
+
+From idea to production-ready code in minutes, not weeks ⚡
+<br>
+
+</div>
+GeminiForge orchestrates five specialised Google Gemini 2.0 Flash agents to automate every stage of a software-delivery pipeline—requirements, architecture, coding, testing and DevOps—while a Retrieval-Augmented Generation (RAG) engine keeps the agents aware of your evolving code-base. The toolchain demonstrates modern Python packaging (pyproject.toml), asynchronous programming with asyncio, robust JSON-parsing fall-backs, multi-stage Docker builds, Kubernetes manifests and CI/CD with GitHub Actions, giving recruiters a 360-degree snapshot of a production-grade engineering skill-set.
+
 ---
 
 ## Table of Contents
