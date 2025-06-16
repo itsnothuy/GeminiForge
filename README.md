@@ -1,6 +1,8 @@
 # 🚀 GeminiForge – AI-Powered Project Generator
 <div align="center">
+
 ![Gemini Logo](./images/logo.png)
+
 **The Ultimate AI Assistant for Full-Stack Project Generation**
    
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -16,17 +18,18 @@ GeminiForge orchestrates five specialised Google Gemini 2.0 Flash agents to auto
 ## Table of Contents
 
 1. [Why GeminiForge](#why-geminiforge)
-2. [System Architecture](#system-architecture)
-3. [Key Features](#key-features)
-4. [Tech Stack](#tech-stack)
-5. [Project Structure](#project-structure)
-6. [Getting Started](#getting-started)
-7. [CLI Workflow](#cli-workflow)
-8. [Observability & Testing](#observability--testing)
-9. [Deployment](#deployment)
-10. [Skills Demonstrated](#skills-demonstrated)
-11. [Road-map & Contributing](#road-map--contributing)
-12. [License](#license)
+2. [See It In Action](#see-it-in-action)
+3. [System Architecture](#system-architecture)
+4. [Key Features](#key-features)
+5. [Tech Stack](#tech-stack)
+6. [Project Structure](#project-structure)
+7. [Getting Started](#getting-started)
+8. [CLI Workflow](#cli-workflow)
+9. [Observability & Testing](#observability--testing)
+10. [Deployment](#deployment)
+11. [Skills Demonstrated](#skills-demonstrated)
+12. [Road-map & Contributing](#road-map--contributing)
+13. [License](#license)
 
 ---
 
