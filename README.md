@@ -1,10 +1,6 @@
 ## 🚀 GeminiForge – AI-Powered Project Generator
 <div align="center">
-
 The Ultimate AI Assistant for Full-Stack Project Generation
-
-![Uploading Screenshot 2025-06-15 at 6.59.09 PM.png…]()
-
 From idea to production-ready code in minutes, not weeks ⚡
 <br>
 
