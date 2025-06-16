@@ -1,6 +1,7 @@
-## 🚀 GeminiForge – AI-Powered Project Generator
+# 🚀 GeminiForge – AI-Powered Project Generator
 <div align="center">
 **The Ultimate AI Assistant for Full-Stack Project Generation**
+   
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Gemini AI](https://img.shields.io/badge/AI-Google%20Gemini-red.svg)](https://ai.google.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
