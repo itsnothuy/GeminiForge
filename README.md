@@ -1,6 +1,6 @@
 # 🚀 GeminiForge – AI-Powered Project Generator
 <div align="center">
-![Gemini Logo](./image/logo.png)
+![Gemini Logo](./images/logo.png)
 **The Ultimate AI Assistant for Full-Stack Project Generation**
    
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -44,6 +44,22 @@ Recruiters often see isolated code samples; GeminiForge shows the *whole* engine
 
 Each agent runs on its *own* Gemini API key so rate-limits never bottleneck the pipeline. ([blog.google][1])
 
+---
+## 🎬 See It In Action
+
+<div align="center">
+
+### From Idea to Production in 5 Steps
+
+![Step 1](./images/stage1.png) | ![Step 2](./images/stage2.png) | ![Step 3](./images/stage3.png)
+:---:|:---:|:---:
+**Requirements Analysis** | **Architecture Design** | **Code Generation**
+
+![Step 4](./images/stage4.png) | ![Step 5](./images/stage5.png)
+:---:|:---:
+**Testing & Review** | **Deployment Setup**
+
+</div>
 ---
 
 ## System Architecture
