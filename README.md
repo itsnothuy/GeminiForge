@@ -71,6 +71,9 @@ Each agent runs on its *own* Gemini API key so rate-limits never bottleneck the 
 :---:|:---:
 **Testing & Review** | **Deployment Setup**
 
+### Demo project
+[![Watch the demo](images/logo.jpg)](images/demo.mov)
+
 </div>
 
 ---
