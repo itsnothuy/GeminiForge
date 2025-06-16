@@ -3,9 +3,7 @@
 
 The Ultimate AI Assistant for Full-Stack Project Generation
 
-
-![Google Gemini AI](https://img.shields.io/badge/AI-engine-Gemini 2.0 Flash-red.svg)
-
+![Uploading Screenshot 2025-06-15 at 6.59.09 PM.png…]()
 
 From idea to production-ready code in minutes, not weeks ⚡
 <br>
