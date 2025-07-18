@@ -1,4 +1,4 @@
-# 🚀 GeminiForge – AI-Powered Project Generator
+# GeminiForge – AI-Powered Project Generator
 <div align="center">
 
 ![Gemini Logo](./images/logo.png)
